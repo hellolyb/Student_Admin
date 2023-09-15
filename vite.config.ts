@@ -1,5 +1,4 @@
 import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -18,6 +17,17 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
+  },
+  server: {
+    // 服务器主机名
+    host: '0.0.0.0'
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "bem.scss";`
+      }
     }
   }
 })

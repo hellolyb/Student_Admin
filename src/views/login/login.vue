@@ -36,25 +36,8 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue'
-
-const username = ref<string>('')
-const password = ref<string>('')
-const handleLogin = () => {
-  if (!username.value || !password.value) {
-    ElNotification({
-      title: 'Error',
-      message: 'This is an error message',
-      type: 'error'
-    })
-  } else {
-    ElNotification({
-      title: 'Success',
-      message: 'This is a success message',
-      type: 'success'
-    })
-  }
-}
+import hanlogIn from './hooks/login'
+const { username, password, handleLogin } = hanlogIn()
 </script>
 <style scoped lang="scss">
 .login {

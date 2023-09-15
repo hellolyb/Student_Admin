@@ -1,0 +1,29 @@
+// 定义的变量名
+$namespcae: 'li' !default;
+$block-sel: '-' !default;
+$elem-sel: '__' !default;
+$mod-sel: '--' !default;
+@mixin b($block) {
+  $B: #{$namespcae + $block-sel + $block};
+  .#{$B} {
+    @content;
+  }
+}
+@mixin e($el) {
+  $selector: &;
+  @at-root {
+    // 跳出嵌套
+    #{$selector + $elem-sel + $el} {
+      @content;
+    }
+  }
+}
+@mixin m($ml) {
+  $selector: &;
+  @at-root {
+    // 跳出嵌套
+    #{$selector + $mod-sel + $ml} {
+      @content;
+    }
+  }
+}
